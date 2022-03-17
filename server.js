@@ -1,26 +1,31 @@
+// Require modules 
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes');
+var skillsRouter = require('./routes/skills');
 
 var app = express();
 
+//configuring the app
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Mount middlewear
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes are middleware, but they get placed at the bottom of the middleware 
+//because they end the request response cycle ( aka send a response)
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/skills', skillsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
