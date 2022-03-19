@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandos Dev-Skills</title>
-</head>
-<body>
-    <h1>Skills</h1>
+<%- include('../partials/header') -%>
+    <h1>Skill Level as of <%= time %></h1>
     <ul>
       <% skills.forEach(function(s) { %>
         <li>
+            <form action="/skills/<%= s.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">delete</button>
+                </form>
             <a href="/skills/<%= s.id %>"><%= s.skill %></a>
             - 
           <%= s.level ? 'Proficeint' : 'Mediocre' %>
         </li>
       <% }); %>
+
     </ul>
-</body>
-</html>
+    <a href="/skills/new">Add New Skill</a>
+    <%- include('../partials/footer') -%>

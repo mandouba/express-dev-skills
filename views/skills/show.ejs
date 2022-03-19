@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandos Dev-Skills</title>
-</head>
-<body>
-    <h1>Skills</h1>
+<%- include('../partials/header') -%>
     <ul>
         <h3><%= skill.skill %></h3>
         <h3>Skill level rank: <%= skill.level ? 'Proficeint' : 'Mediocre' %></h3>
     </ul>
-</body>
-</html>
+    <%- include('../partials/footer') -%>>

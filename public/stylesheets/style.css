@@ -1,8 +1,38 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 325px;
+  background-color: antiquewhite;
 }
 
 a {
   color: #00B7FF;
 }
+
+.delete-form {
+  display: inline-block;
+  margin-right: 10px;
+}
+	
+.delete-form button {
+  color: red;
+}
+	
+li {
+  list-style: none;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+  img {
+    width: 375px;
+    height: 100px;
+    padding: 20px;
+  }
+
