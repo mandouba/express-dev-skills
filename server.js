@@ -16,13 +16,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//Custom middleware
-app.use(function(req, res, next) {
-  console.log('Hello SEI!');
-   // Pass the request to the next middleware
-  res.locals.time = new Date().toLocaleTimeString();
-next();
-});
 // Mount middlewear
 app.use(logger('dev'));
 app.use(express.json());
@@ -30,6 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));  
+//Custom middleware
+app.use(function(req, res, next) {
+  console.log('Hello SEI!');
+   // Pass the request to the next middleware
+  res.locals.time = new Date().toLocaleTimeString();
+next();
+});
 // routes are middleware, but they get placed at the bottom of the middleware 
 //because they end the request response cycle ( aka send a response)
 app.use('/', indexRouter);
